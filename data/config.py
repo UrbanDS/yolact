@@ -156,7 +156,15 @@ pascal_sbd_dataset = dataset_base.copy({
     'class_names': PASCAL_CLASSES,
 })
 
-
+cig_butts_dataset = dataset_base.copy({
+  'name': 'Immersive Limit - Cigarette Butts',
+  'train_info': './data/train.json',
+  'train_images': './data/a/',
+  'valid_info': './data/test.json',
+  'valid_images': './data/a/',
+  'class_names': ('trunk'),
+  'label_map': { 1:  1 }
+})
 
 
 
@@ -732,6 +740,16 @@ yolact_resnet50_config = yolact_base_config.copy({
         'preapply_sqrt': False,
         'use_square_anchors': True, # This is for backward compatability with a bug
     }),
+})
+
+yolact_resnet50_cig_butts_config = yolact_resnet50_config.copy({
+    'name': 'yolact_plus_resnet50_cig_butts',
+    # Dataset stuff
+    'dataset': cig_butts_dataset,
+    'num_classes': len(cig_butts_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 512,
 })
 
 
