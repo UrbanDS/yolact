@@ -187,6 +187,8 @@ class COCODetection(data.Dataset):
             cv2 img
         '''
         img_id = self.ids[index]
+        print(index)
+        print(img_id)
         path = self.coco.loadImgs(img_id)[0]['file_name']
         return cv2.imread(osp.join(self.root, path), cv2.IMREAD_COLOR)
 
@@ -204,6 +206,7 @@ class COCODetection(data.Dataset):
         '''
         img_id = self.ids[index]
         ann_ids = self.coco.getAnnIds(imgIds=img_id)
+        print("----",ann_ids)
         return self.coco.loadAnns(ann_ids)
 
     def __repr__(self):
