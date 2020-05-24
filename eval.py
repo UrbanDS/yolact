@@ -41,7 +41,7 @@ def parse_args(argv=None):
     parser = argparse.ArgumentParser(
         description='YOLACT COCO Evaluation')
     parser.add_argument('--trained_model',
-                        default='weights/ssd300_mAP_77.43_v2.pth', type=str,
+                        default='weights/yolact_resnet50_cig_butts_config.pth', type=str,
                         help='Trained state_dict file path to open. If "interrupt", this will open the interrupt file.')
     parser.add_argument('--top_k', default=5, type=int,
                         help='Further restrict the number of predictions to parse')
@@ -1048,7 +1048,7 @@ def print_maps(all_maps):
 
 if __name__ == '__main__':
     parse_args()
-
+    print("args.config",args.config)
     if args.config is not None:
         set_cfg(args.config)
 

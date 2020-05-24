@@ -96,11 +96,11 @@ dataset_base = Config({
     'name': 'Base Dataset',
 
     # Training images and annotations
-    'train_images': './data/a/',
+    'train_images': './data/train/',
     'train_info':   './data/train.json',
 
     # Validation images and annotations.
-    'valid_images': './data/a/',
+    'valid_images': './data/test/',
     'valid_info':   './data/test.json',
 
     # Whether or not to load GT. If this is False, eval.py quantitative evaluation won't work.
@@ -147,8 +147,8 @@ PASCAL_CLASSES = ("trunk")
 pascal_sbd_dataset = dataset_base.copy({
     'name': 'Pascal SBD 2012',
 
-    'train_images': './data/a',
-    'valid_images': './data/a',
+    'train_images': './data/train/',
+    'valid_images': './data/test/',
     
     'train_info': './data/train.json',
     'valid_info': './data/test.json',
@@ -159,9 +159,9 @@ pascal_sbd_dataset = dataset_base.copy({
 cig_butts_dataset = dataset_base.copy({
   'name': 'Immersive Limit - Cigarette Butts',
   'train_info': './data/train.json',
-  'train_images': './data/a/',
+  'train_images': './data/train/',
   'valid_info': './data/test.json',
-  'valid_images': './data/a/',
+  'valid_images': './data/test/',
   'class_names': ('trunk'),
   'label_map': { 1:  1 }
 })
