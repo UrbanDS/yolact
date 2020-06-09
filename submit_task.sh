@@ -26,4 +26,4 @@
 module load cuda
 module load singularity
 
-singularity exec --nv docker://biggreenapple/yolact:latest python ./train.py --config=yolact_resnet50_cig_butts_config --batch_size=32
+singularity exec --nv docker://biggreenapple/yolact:latest python ./train.py --num_workers=0 --cuda=True --save_interval=5000 --config=yolact_resnet50_cig_butts_config --validation_size=146 --batch_size=20
