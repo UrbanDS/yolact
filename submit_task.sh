@@ -1,3 +1,4 @@
+#!/bin/bash
 # age: gputest.sh
 # Change job name and email address as needed 
 #        
