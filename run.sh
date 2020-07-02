@@ -1,0 +1,6 @@
+#python testgpu.py
+#python train.py --dataroot ../UD1k1k --name UD1k1k_cyclegan --model cycle_gan --display_id -1 --preprocess scale_width_and_crop --load_size 1024 --crop_size 360
+#python train.py --dataroot ../UD1k1k --name cyclegan_b8 --model cycle_gan --display_id -1 --preprocess scale_width_and_crop --load_size 1024 --crop_size 360 --batch_size 8 --display_winsize 1024 --gpu_ids 0,1
+#python train.py --dataroot /xye_data_nobackup/UD1k1k --name cyclegan_color --model cycle_gan --display_id -1 --preprocess scale_width_and_crop --load_size 1024 --crop_size 360 --batch_size 4 --display_winsize 1024 --gpu_ids 0,1
+#python test.py --dataroot path/to/datasets/UD1k1k --name UD1k1k_cyclegan --model cycle_gan --preprocess scale_width --load_size 1024 --display_id -1 --display_winsize 1024
+python train.py --config=yolact_resnet50_cig_butts_config --batch_size=16 --save_folder=/weights/ --cuda=True --save_interval=5000 --validation_size=146 --validation_epoch=20 --resume=/weights/yolact_plus_resnet50_cig_butts_2333_63000.pth

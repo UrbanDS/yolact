@@ -1,0 +1,32 @@
+#!/bin/bash -l
+#
+# Usage: gputest.sh
+# Change job name and email address as needed 
+#        
+# -- our name ---
+#SBATCH -J cyclegan_color
+#SBATCH -o cyclegan_color.output
+
+# partition
+#SBATCH -p datasci
+# to request a GPU
+#SBATCH --gres=gpu:1
+###SBATCH --gres=gpu:Rtx2080:1
+
+#Request an amount of RAM for the job
+#SBATCH --mem=64G #16GB requested.
+# Run on 1 node
+#SBATCH --nodes=1
+# Use 1 CPU
+#SBATCH --ntasks-per-node=4
+
+/bin/echo Running on host: `hostname`.
+/bin/echo In directory: `pwd`
+/bin/echo Starting on: `date`
+ 
+# Load CUDA module
+module load singularity
+module load cuda
+#This is an example command
+singularity exec --nv --bind /xye_data_nobackup docker://fashui01/cyclegan sh run.sh
+
