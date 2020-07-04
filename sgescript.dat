@@ -10,13 +10,13 @@
 # partition
 #SBATCH -p datasci
 # to request a GPU
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 ###SBATCH --gres=gpu:Rtx2080:1
 
 #Request an amount of RAM for the job
-#SBATCH --mem=64G #16GB requested.
+#SBATCH --mem=128G #16GB requested.
 # Run on 1 node
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 # Use 1 CPU
 #SBATCH --ntasks-per-node=4
 
@@ -28,5 +28,5 @@
 module load singularity
 module load cuda
 #This is an example command
-singularity exec --nv --bind /xye_data_nobackup docker://fashui01/cyclegan sh run.sh
-
+#singularity exec --nv --bind /xye_data_nobackup docker://fashui01/cyclegan sh run.sh
+singularity exec --nv docker://biggreenapple/yolact:latest python train.py --config=yolact_resnet50_cig_butts_config --batch_size=8 --cuda=True --save_interval=5000 --validation_size=146 --validation_epoch=20 --num_workers=0 --resume=weights/yolact_plus_resnet50_cig_butts_3555_96000.pth
